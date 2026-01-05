@@ -16,7 +16,7 @@
 ## Walkthrough - Most Important Labs
 
 
-- [CSRF bypassing SameSite=Strict restriction via redirect + path traversal + CSRF](CSRF-bypass-SameSite-Strict-via-redirect-path-traversal.md)
+- [CSRF + Header injection where token is tied to non-session cookie](CSRF-bypass-SameSite-Strict-via-redirect-path-traversal.md)
 
 - [CSRF bypassing SameSite=Lax via method spoofing](CSRF-bypass-SameSite-Lax-via-method-spoofing.md)
 

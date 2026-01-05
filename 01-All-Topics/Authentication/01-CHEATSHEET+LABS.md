@@ -14,7 +14,7 @@ Burp Macros
   
 - [Brute-forcing-a-stay-logged-in-cookie-(cookie-easy-to-reproduce-username+md5+b64)](Brute-forcing-a-stay-logged-in-cookie-(cookie-easy-to-reproduce-username+md5+b64).md)
 
-- [Offline-password-cracking](Offline-password-cracking.md)
+- [Offline-password-cracking (stay-logged-cookie + XSS)](Offline-password-cracking.md)
 
 - [2FA broken login (brute-force to 2fa code)](2FA-broke-login.md)
 
